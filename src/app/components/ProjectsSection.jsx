@@ -8,7 +8,7 @@ const projectsData = [
   {
     id: 1,
     title: "React Portfolio Website",
-    description: "Project 1 description",
+    description: "responsive portifolio using css ,bootstrap , react.js and react techniquies like react hooks and react router  ",
     image: "/images/projects/p5.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/portifolio",
@@ -17,7 +17,7 @@ const projectsData = [
   {
     id: 2,
     title: "Flower Shop Website",
-    description: "Project 2 description",
+    description: "respnsive fullstack e-commerce site using react.js ,tailwind css, express.js , mongoodb,  ",
     image: "/images/projects/p1.png",
     tag: ["All", "Fullstack"],
     gitUrl: "https://github.com/ayaSaleh717/fullstac-flower_shop",
@@ -26,7 +26,7 @@ const projectsData = [
   {
     id: 3,
     title: "Chat App Website",
-    description: "Project 3 description",
+    description: "Responsive full-stack chat application built with React.js, Tailwind CSS, Express.js, and MongoDB. Features real-time messaging, user authentication, and a modern, responsive interface. ",
     image: "/images/projects/p2.png",
     tag: ["All", "Fullstack"],
     gitUrl: "https://github.com/ayaSaleh717/full-stack-chat-app",
@@ -35,7 +35,7 @@ const projectsData = [
   {
     id: 4,
     title: "IMBD clone",
-    description: "Project 4 description",
+    description: " a responsive move database site using next.js and tailwind",
     image: "/images/projects/p3.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/MoveApp",
@@ -44,7 +44,7 @@ const projectsData = [
   {
     id: 5,
     title: "CarHub",
-    description: "Authentication and CRUD operations",
+    description: "responsive site using next.js and taiwind css",
     image: "/images/projects/p4.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/car_hub",
@@ -53,7 +53,7 @@ const projectsData = [
   {
     id: 6,
     title: "Simple Weather App",
-    description: "Project 5 description",
+    description: " simple responsive weather app using Api from weather api ",
     image: "/images/projects/p7.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/weather",
@@ -62,7 +62,7 @@ const projectsData = [
   {
     id: 7,
     title: "React E-commerce Website",
-    description: "Project 1 description",
+    description: " responsive restaurent add to cart app using react.js and it’s techniquis like react router , react hooks and redux toolkit. ",
     image: "/images/projects/p6.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/E-commercal",
@@ -71,7 +71,7 @@ const projectsData = [
   {
     id: 8,
     title: "Simple Dashboard ",
-    description: "Project 1 description",
+    description: "Project  description",
     image: "/images/projects/p8.png",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/simple_dashboard",

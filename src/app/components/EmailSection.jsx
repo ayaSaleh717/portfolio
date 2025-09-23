@@ -4,38 +4,56 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+    setError(null);
+    setEmailSubmitted(false);
+    setLoading(true);
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+    try {
+      const from_email = e.target.email.value;
+      const subject = e.target.subject.value;
+      const message = e.target.message.value;
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          "EmailJS is not configured. Please set NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY."
+        );
+      }
+
+      // Variables should match your EmailJS template fields
+      const templateParams = {
+        from_email,
+        subject,
+        message,
+      };
+
+      const res = await emailjs.send(serviceId, templateId, templateParams, {
+        publicKey,
+      });
+
+      if (res?.status === 200) {
+        setEmailSubmitted(true);
+        e.target.reset();
+      } else {
+        throw new Error("Failed to send email via EmailJS.");
+      }
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(err.message || "Something went wrong while sending the message.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,9 +90,10 @@ const EmailSection = () => {
       </div>
       <div>
         {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
-          </p>
+          <div className="mt-2 space-y-3">
+            <p className="text-green-500 text-sm">Email sent successfully!</p>
+           
+          </div>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="mb-6">
@@ -119,18 +138,42 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
+                required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
             </div>
+            {error && (
+              <p className="text-red-500 text-sm mb-2">{error}</p>
+            )}
             <button
               type="submit"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-cyan-500 hover:bg-cyan-600 disabled:bg-cyan-800/60 disabled:cursor-not-allowed text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         )}
+         <div className="text-sm text-[#ADB7BE]">
+              <p className="mb-1">Or connect by phone:</p>
+              <div className="flex gap-3 flex-wrap">
+                <a
+                  href="tel:+963993661469"
+                  className="inline-block bg-slate-800 hover:bg-slate-700 text-white px-3 py-2 rounded-md"
+                >
+                  Call +963 993 661 469
+                </a>
+                <a
+                  href="https://wa.me/963993661469"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-md"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
       </div>
     </section>
   );
