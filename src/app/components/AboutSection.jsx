@@ -47,13 +47,13 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} />
+        <Image src="/images/about-image.png" width={500} height={500} alt="About illustration" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-          Hi, I'm Aya
+          Hi, I&apos;m Aya
 
-A Front-End Developer who builds modern, responsive web applications with HTML, CSS, JavaScript, and React. I love turning complex problems into simple, elegant solutions through clean code and creative design. Let's create something amazing together.
+A Front-End Developer who builds modern, responsive web applications with HTML, CSS, JavaScript, and React. I love turning complex problems into simple, elegant solutions through clean code and creative design. Let&apos;s create something amazing together.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
