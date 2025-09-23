@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "set GITHUB_PAGES=true&& npm run build",
+    "predeploy": "set GITHUB_PAGES=true&& npm run build && node scripts/post-export.js",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
