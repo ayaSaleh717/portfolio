@@ -9,7 +9,7 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li> Html | css & Bootstrap Tailwind css</li>
+        <li> Html | css & Bootstrap Tailwind css .</li>
          <li> Javascript & Typescript</li>
         <li>React.js & Next.js</li>
         <li>Node.js & Express</li>
