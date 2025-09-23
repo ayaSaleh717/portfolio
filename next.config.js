@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-const repo = 'portfolio';
+const repo = 'new_portifolio';
 
 const nextConfig = {
   // Export as a static site for GitHub Pages
