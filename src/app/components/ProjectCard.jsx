@@ -6,9 +6,8 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
     <div>
       <div className="h-52 md:h-72 rounded-t-xl relative group overflow-hidden">
-        {/* next/image with fill + object-cover */}
         <Image
-          src={imgUrl}                 // e.g. "/images/projects/p6.png"
+          src={imgUrl}                
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
