@@ -86,8 +86,12 @@ const EmailSection = () => {
         <Image src="/images/connect.png" alt="hero image" className=""
                     width={300}
                     height={300}/>
+                      <Image src="/images/p8.png" alt="hero image" className=""
+                    width={300}
+                    height={300}/>
         
       </div>
+      
       <div>
         {emailSubmitted ? (
           <div className="mt-2 space-y-3">
