@@ -81,7 +81,7 @@ import { motion, useInView } from "framer-motion";
     id: 9,
     title: "RZN Assistant",
     description: "web application for a smart nutritionist powered by AI",
-    image: "/images/p8.PNG",
+    image: "/images/p9.PNG",
     tag: ["All", "Frontend"],
     gitUrl: "https://github.com/ayaSaleh717/RZn-chatbot",
     previewUrl: "https://ayasaleh717.github.io/RZn-chatbot/",
