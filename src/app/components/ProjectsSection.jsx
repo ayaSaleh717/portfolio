@@ -77,6 +77,15 @@ import { motion, useInView } from "framer-motion";
     gitUrl: "https://github.com/ayaSaleh717/simple_dashboard",
     previewUrl: "https://ayasaleh717.github.io/simple_dashboard/",
   },
+    {
+    id: 9,
+    title: "RZN Assistant",
+    description: "web application for a smart nutritionist powered by AI",
+    image: "/images/p8.PNG",
+    tag: ["All", "Frontend"],
+    gitUrl: "https://github.com/ayaSaleh717/RZn-chatbot",
+    previewUrl: "https://ayasaleh717.github.io/RZn-chatbot/",
+  },
 ];
 
 const ProjectsSection = () => {
